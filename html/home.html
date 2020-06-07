@@ -1,0 +1,50 @@
+<h1>
+    <i class="fa fa-home"></i> Home
+</h1>
+<hr>
+
+<div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Pesquisa</span>
+    </div>
+    <input ng-model="busca" type="text" class="form-control" placeholder="Digite nome do jogo" aria-describedby="button-addon4" ng-filter="currency">
+
+    <div class="input-group-append">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" >Todas</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" ></a>Aventura</a>
+          <a class="dropdown-item" >RPG</a>
+          <a class="dropdown-item" >SANDBOX</a>
+        </div>
+      </div>
+
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" type="button" id="button-addon2"><i class="fa fa-play"></i></button>
+      </div>
+
+</div>
+
+<table class="table table-borderless table-dark text-center">
+    <thead>
+        <tr>
+            <th scope="col"><i class="fa fa-gamepad"></i> Nome</th>
+            <th scope="col"><i class="fa fa-tasks"></i> Categoria</th>
+            <th scope="col" width="20%"><i class="fa fa-calendar"></i> Data de lançamento</th>
+            <th scope="col"><i class="fa fa-align-justify"></i> Descrição</th>
+            <th scope="col" width="10%"><i class="fa fa-pen"></i> Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in jogos | filter : busca | orderBy : 'nome'" class="animated fadeInUp">
+            <td>{{row.name}}</td>
+            <td>{{row.categoria}}</td>
+            <td>{{row.data}}</td>
+            <td>{{row.desc}}</td>
+            <td>
+                <button class="btn btn-primary" > <i class="fa fa-pen"></i> </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
